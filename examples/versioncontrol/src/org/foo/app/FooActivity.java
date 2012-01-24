@@ -24,3 +24,5 @@ public class FooActivity extends Activity {
     
     public static final double PI = 3.1415926535897932384626433;
 }
+
+/* I dont understand Java */
