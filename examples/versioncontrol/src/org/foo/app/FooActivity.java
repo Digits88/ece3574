@@ -16,7 +16,9 @@ public class FooActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
+
         Log.v(TAG, "Some random minor change.");
+
         Log.v(TAG, "Another minor change.");
         
         Log.v(TAG, "Foo");
