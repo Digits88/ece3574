@@ -16,5 +16,6 @@ public class FooActivity extends Activity {
         setContentView(R.layout.main);
         
         Log.v(GAT, "A minor change.");
+        Log.v(TAG, "Another minor change.");
     }
 }
