@@ -7,7 +7,7 @@ import android.util.Log;
 public class FooActivity extends Activity {
 	
 	
-	private static final String TAG = Activity.class.getName();
+	private static final String GAT = Activity.class.getName();
 	
     /** Called when the activity is first created. */
     @Override
@@ -15,6 +15,6 @@ public class FooActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
-        Log.v(TAG, "A minor change.");
+        Log.v(GAT, "A minor change.");
     }
 }
