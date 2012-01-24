@@ -7,7 +7,7 @@ import android.util.Log;
 public class FooActivity extends Activity {
 	
 	// This is a comment made by Jacob Llaneras
-	
+	// Maybe, maybe not
 	private static final String GAT = Activity.class.getName();
 	
     /** Called when the activity is first created. */
