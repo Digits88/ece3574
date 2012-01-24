@@ -19,4 +19,6 @@ public class FooActivity extends Activity {
         Log.v(GAT, "A minor change.");
         Log.v(TAG, "Another minor change.");
     }
+    
+    public static final double PI = 3.1415926535897932384626433;
 }
