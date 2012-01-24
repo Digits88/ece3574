@@ -8,7 +8,7 @@ public class FooActivity extends Activity {
 	
 	// This is a comment made by Jacob Llaneras
 	// Maybe, maybe not
-	private static final String GAT = Activity.class.getName();
+	private static final String TAG = Activity.class.getName();
 	
     /** Called when the activity is first created. */
     @Override
@@ -16,8 +16,10 @@ public class FooActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
-        Log.v(GAT, "A minor change.");
+        Log.v(TAG, "A minor change.");
         Log.v(TAG, "Another minor change.");
+        
+        Log.v(TAG, "Foo");
     }
     
     public static final double PI = 3.1415926535897932384626433;
