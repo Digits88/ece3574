@@ -1,0 +1,7 @@
+Logfile initialized
+[INFO] logfile = C:\Users\Anthony\Documents\My Dropbox\training2\Training2\build.log
+[DEBUG] C:\Users\Anthony\AppData\Roaming\Titanium\mobilesdk\win32\1.8.0.1\android\builder.py simulator assignment2 C:\Program Files (x86)\Android\android-sdk C:\Users\Anthony\Documents\My Dropbox\training2\Training2 com.sosso.assignment4 7 HVGA /127.0.0.1:58438
+[INFO] Building assignment2 for Android ... one moment
+[INFO] Titanium SDK version: 1.8.0.1 (12/22/11 13:09 fbdc96f)
+[DEBUG] Waiting for device to be ready ...
+[TRACE] adb devices returned 0 devices/emulators
