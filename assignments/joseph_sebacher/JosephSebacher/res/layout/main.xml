@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <LinearLayout 
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="2">
+        <LinearLayout 
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1">
+    	<TextView
+    		android:id="@+id/label"
+    		android:layout_width="fill_parent"
+    		android:layout_height="wrap_content"
+			android:layout_weight="1"
+    		android:text="Write a color in the text box and choose which part of the box to fill!"/>
+    	<EditText
+        	android:id="@+id/textbox"
+        	android:textColor="#000000"
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:background="@android:drawable/editbox_background"
+			android:layout_weight="1"/>
+    	</LinearLayout>
+    	
+    	<LinearLayout 
+        	android:orientation="horizontal"
+        	android:layout_width="fill_parent"
+        	android:layout_height="fill_parent"
+        	android:layout_weight="1">
+    		<Button 
+        		android:id="@+id/topbutton"
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+				android:layout_weight="1"
+        		android:text="Top Color"/>
+    		<Button 
+        		android:id="@+id/middlebutton"
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+				android:layout_weight="1"
+        		android:text="Middle Color"/>
+    		<Button 
+        		android:id="@+id/bottombutton"
+        		android:layout_width="wrap_content"
+        		android:layout_height="wrap_content"
+				android:layout_weight="1"
+        		android:text="Bottom Color"/>
+    	</LinearLayout>
+    	
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1">
+    	<TextView 
+        	android:id="@+id/topcolorbox"
+        	android:background="#000000"
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:layout_weight="1"/>
+    	<TextView 
+        	android:id="@+id/middlecolorbox"
+        	android:background="#000000"
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:layout_weight="1"/>
+    	<TextView 
+        	android:id="@+id/bottomcolorbox"
+        	android:background="#000000"
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:layout_weight="1"/>
+    </LinearLayout>
+
+</LinearLayout>
