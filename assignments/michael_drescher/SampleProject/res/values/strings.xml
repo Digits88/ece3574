@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, MainScreen!</string>
+    <string name="app_name">SampleProject</string>
+    <string name="dropdownlistname">Touch Me!</string>
+    <string name="about_text">This app was created by Michael Drescher,and is a sample app to help me learn about the making of menus and user interfaces and the like.</string>
+    <string name="backButton">Go Back</string>
+    <string name="other_text">This is another screen.</string>
+
+</resources>
