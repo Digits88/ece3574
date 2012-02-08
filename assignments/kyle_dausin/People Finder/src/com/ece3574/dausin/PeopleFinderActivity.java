@@ -7,14 +7,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Vibrator;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.View.OnLongClickListener;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class PeopleFinderActivity extends Activity {
     /** Called when the activity is first created. */
@@ -22,7 +28,7 @@ public class PeopleFinderActivity extends Activity {
 	private HashMap<String, String> ParsedXML;
 	private ImageView profilePhoto, addFriendPhoto;
     private ArrayList<Friend> appFriends = new ArrayList<Friend>();
-    private LinearLayout friendsLayout_;
+    private LinearLayout friendsLayout_, addFriendLayout_;
     HorizontalScrollView friendsContainer_;
 	
     @Override
@@ -45,6 +51,16 @@ public class PeopleFinderActivity extends Activity {
 	    profilePhoto.setMaxWidth(50);
 	    
 	    friendsContainer_ = (HorizontalScrollView) findViewById(R.id.friendsContainer);
+	    
+	    addFriendLayout_ = (LinearLayout) findViewById(R.id.addFriendLayout);
+	    addFriendLayout_.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				makeToast("Add Friend Layout Pressed.");
+			}
+	    	
+	    });
 	   
 	    
 	    tempFillContainer();
@@ -58,6 +74,7 @@ public class PeopleFinderActivity extends Activity {
     	for(int i=0; i<10; i++) {
     		LinearLayout appFriendLayout_ = new LinearLayout(getBaseContext());
     		appFriendLayout_.setOrientation(1);
+			String name = "Test Name " + Integer.toString(i+1);
     		LinearLayout.LayoutParams hlp = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
     	    hlp.setMargins(0, 0, 10, 0);
     	    ImageView photo = new ImageView(getBaseContext());
@@ -65,7 +82,7 @@ public class PeopleFinderActivity extends Activity {
     	    photo.setLayoutParams(hlp);
     	    appFriendLayout_.addView(photo);
 			TextView t = new TextView(getBaseContext());
-			t.setText("Test Name");
+			t.setText(name);
 			t.setTextColor(0xFF800000);
 			t.setTextSize(18);
 			LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
@@ -75,7 +92,30 @@ public class PeopleFinderActivity extends Activity {
 			LinearLayout.LayoutParams plp = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 			plp.setMargins(10, 10, 10, 10);
 			appFriendLayout_.setLayoutParams(plp);
+			appFriendLayout_.setTag(name);
 			friendsLayout_.addView(appFriendLayout_);
+			appFriendLayout_.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+					String tag = v.getTag().toString();
+					makeToast(tag + " pressed.");
+				}
+				
+			});
+			appFriendLayout_.setOnLongClickListener(new OnLongClickListener() {
+
+				@Override
+				public boolean onLongClick(View arg0) {
+					Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+					// Vibrate for 300 milliseconds
+					v.vibrate(50);
+					String tag = arg0.getTag().toString();
+					makeToast(tag + " long pressed.");
+					return false;
+				}
+				
+			});
     	}
     }
     
@@ -121,4 +161,9 @@ public class PeopleFinderActivity extends Activity {
 			friendsLayout_.addView(appFriendLayout_);
 		}
 	}
+	
+	public void makeToast(String str) {
+		Toast.makeText(getApplicationContext(), str, Toast.LENGTH_SHORT).show();
+	}
+	
 }
