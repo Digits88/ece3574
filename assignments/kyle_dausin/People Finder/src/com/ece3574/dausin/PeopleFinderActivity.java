@@ -7,7 +7,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -15,7 +17,6 @@ import android.os.Vibrator;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
-import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
@@ -29,14 +30,15 @@ public class PeopleFinderActivity extends Activity {
 	private ImageView profilePhoto, addFriendPhoto;
     private ArrayList<Friend> appFriends = new ArrayList<Friend>();
     private LinearLayout friendsLayout_, addFriendLayout_;
-    HorizontalScrollView friendsContainer_;
+    
+    private static final int SHORT_PRESS_ALERT = 1;
+    private static final int LONG_PRESS_ALERT = 2;
+    private static final int FRIEND_PRESS_ALERT = 3;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
-        
-		//friendsRelativeLayout_ = (RelativeLayout) findViewById(R.id.FriendsRelativeLayout);
+        setContentView(R.layout.friend);
 		
 		friendsLayout_ = (LinearLayout) findViewById(R.id.friendsLayout);
         
@@ -50,22 +52,19 @@ public class PeopleFinderActivity extends Activity {
 	    profilePhoto.setMaxHeight(50);
 	    profilePhoto.setMaxWidth(50);
 	    
-	    friendsContainer_ = (HorizontalScrollView) findViewById(R.id.friendsContainer);
-	    
 	    addFriendLayout_ = (LinearLayout) findViewById(R.id.addFriendLayout);
 	    addFriendLayout_.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				makeToast("Add Friend Layout Pressed.");
+				//makeToast("Add Friend Layout Pressed.");
+				makeDialog(FRIEND_PRESS_ALERT, "");
 			}
 	    	
 	    });
 	   
 	    
 	    tempFillContainer();
-	    
-	    //friendsContainer_.addView(friendsLayout_);
         
     }
     
@@ -99,7 +98,8 @@ public class PeopleFinderActivity extends Activity {
 				@Override
 				public void onClick(View v) {
 					String tag = v.getTag().toString();
-					makeToast(tag + " pressed.");
+					//makeToast(tag + " pressed.");
+					makeDialog(SHORT_PRESS_ALERT, tag);
 				}
 				
 			});
@@ -111,8 +111,9 @@ public class PeopleFinderActivity extends Activity {
 					// Vibrate for 300 milliseconds
 					v.vibrate(50);
 					String tag = arg0.getTag().toString();
-					makeToast(tag + " long pressed.");
-					return false;
+					//makeToast(tag + " long pressed.");
+					makeDialog(LONG_PRESS_ALERT, tag);
+					return true;
 				}
 				
 			});
@@ -164,6 +165,97 @@ public class PeopleFinderActivity extends Activity {
 	
 	public void makeToast(String str) {
 		Toast.makeText(getApplicationContext(), str, Toast.LENGTH_SHORT).show();
+	}
+	
+	public void makeDialog(int type, String tag) {
+		
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		AlertDialog dialog;
+		
+		
+		switch(type){
+		case SHORT_PRESS_ALERT:
+			builder.setMessage("This is a dummy message for a short press.  Name = " + tag);
+			builder.setPositiveButton("Sweet", new DialogInterface.OnClickListener() {
+
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					dialog.cancel();
+					//Do Something Here.
+					
+				}
+				
+			});
+			builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					dialog.cancel();
+					//Do something else here.
+					
+				}
+				
+			});
+			
+			dialog = builder.create();
+			dialog.show();
+			break;
+		case LONG_PRESS_ALERT:
+			builder.setMessage("This is a dummy message for a long press.  Name = " + tag);
+			builder.setPositiveButton("Sweet", new DialogInterface.OnClickListener() {
+
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					dialog.cancel();
+					//Do Something Here.
+					
+				}
+				
+			});
+			builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					
+					dialog.cancel();
+					//Do something else here.
+					
+				}
+				
+			});
+			
+			dialog = builder.create();
+			dialog.show();
+			break;
+			
+		case FRIEND_PRESS_ALERT:
+			builder.setMessage("This is a dummy message for an add friend press.");
+			builder.setPositiveButton("Sweet", new DialogInterface.OnClickListener() {
+
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					dialog.cancel();
+					//Do Something Here.
+					
+				}
+				
+			});
+			builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					
+					dialog.cancel();
+					//Do something else here.
+					
+				}
+				
+			});
+			
+			dialog = builder.create();
+			dialog.show();
+			break;
+		}
 	}
 	
 }
