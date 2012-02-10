@@ -16,9 +16,7 @@ public class AboutScreen extends Activity {
     }
 
 	public void goToMainScreen(View arg0) {
-		arg0.playSoundEffect(SoundEffectConstants.CLICK);
-		Intent intent = new Intent(this, MainScreen.class);
-		startActivity(intent);
+		this.finish();
 	}
 
 }

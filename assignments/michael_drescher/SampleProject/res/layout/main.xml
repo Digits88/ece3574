@@ -2,53 +2,36 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.56" >
+    android:orientation="vertical" android:fitsSystemWindows="true" android:gravity="center">
 
-        <Button
-            android:id="@+id/button1"
-            style="@style/BackButton"
-            android:layout_width="166dp"
-            android:layout_height="129dp"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="457dp"
-            android:layout_marginTop="222dp"
-            android:text="Press Me!" 
-            android:onClick="goToAboutScreen"/>
+    <Button
+        android:id="@+id/button1"
+        style="@style/BackButton"
+        android:layout_width="236dp"
+        android:layout_weight="0.98"
+        android:onClick="goToAboutScreen"
+        android:text="Press Me!" />
 
-        <DigitalClock
-            android:id="@+id/digitalClock1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/button1"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="34dp"
-            android:text="DigitalClock" />
+    <AnalogClock
+        android:id="@+id/analogClock1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
 
-        <AnalogClock
-            android:id="@+id/analogClock1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/button1"
-            android:layout_alignLeft="@+id/button1"
-            android:layout_marginBottom="142dp" />
-
-        <Button
-            android:id="@+id/button2"
-            style="@style/BackButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="67dp"
-            android:layout_toRightOf="@+id/button1"
-            android:text="Button"
-            android:onClick="goToOtherScreen" />
+    <DigitalClock
+        android:id="@+id/digitalClock1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="DigitalClock" />
 
-    </RelativeLayout>
+    <Button
+        android:id="@+id/button2"
+        style="@style/BackButton"
+        android:layout_width="236dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.99"
+        android:onClick="goToOtherScreen"
+        android:text="Button" />
 
 </LinearLayout>

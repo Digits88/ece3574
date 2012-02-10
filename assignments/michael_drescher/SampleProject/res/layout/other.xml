@@ -8,9 +8,8 @@
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="280dp"
+            android:layout_centerVertical="true"
             android:text="@string/other_text"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -19,10 +18,10 @@
             style="@style/BackButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textView1"
+            android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="92dp"
-            android:text="@string/backButton"
-            android:onClick="goToMainScreen" />
+            android:layout_marginTop="39dp"
+            android:onClick="goToMainScreen"
+            android:text="@string/backButton" />
 
     </RelativeLayout>
