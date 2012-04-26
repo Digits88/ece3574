@@ -3,6 +3,7 @@
 	<name>WTPWebSrv</name>
 	<comment></comment>
 	<projects>
+		<project>WTPartyProject</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
