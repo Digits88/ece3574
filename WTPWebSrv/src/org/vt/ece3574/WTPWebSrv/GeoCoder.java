@@ -1,6 +1,5 @@
 package org.vt.ece3574.WTPWebSrv;
 
-import java.util.HashMap;
 import java.sql.*;
 
 import org.ece3574.WTParty.GeoLocation;
