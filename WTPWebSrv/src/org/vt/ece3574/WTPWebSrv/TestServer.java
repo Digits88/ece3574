@@ -8,6 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
+import java.net.URLDecoder;
+import org.ece3574.WTParty.*;
+
 /**
  * Servlet implementation class TestServer
  */
@@ -27,7 +31,44 @@ public class TestServer extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter res = response.getWriter();
-		res.write("Hello, world!");
+		Error.init(res);
+		String command  = request.getParameter("command");
+		
+		if(command==null)
+		{
+			error("Error: command missing.", response);
+		}
+		else if(command.equals("geocode"))
+		{
+			String input = request.getParameter("input");
+			if(input==null)
+			{
+				error("Error: geocode requires input parameter.", response);
+			}
+			else
+			{
+				input = URLDecoder.decode(input, "US-ASCII");
+				GeoLocation loc = GeoCoder.geoCode(input);
+				if(loc!=null)
+				{
+					res.write(loc.toString());
+				}
+				else
+				{
+					res.write("NOT FOUND");
+				}
+			}
+		}
+		else
+		{
+			error("Error: command not recognized.", response);
+		}
+	}
+	
+	private void error(String message, HttpServletResponse response) throws IOException
+	{
+		response.setStatus(500);
+		response.getWriter().write(message);
 	}
 
 	/**
