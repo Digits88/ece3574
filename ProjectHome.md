@@ -1,0 +1,1 @@
+This is the project home page for the ECE 3574 context-aware software projects.
